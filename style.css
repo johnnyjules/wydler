@@ -13,6 +13,7 @@ Boilerplate 2020 by Oliver Peter 🐕
     - FORM
     - GRID
     - VARIABLES
+    - HEADER
     - DIV
 
 ===================================================*/
@@ -21,7 +22,7 @@ Boilerplate 2020 by Oliver Peter 🐕
 IMPORTS
 --------------------------------------------------*/
 
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 /*--------------------------------------------------
 CSS CUSTOM PROPS / VARIABLES
@@ -30,48 +31,43 @@ CSS CUSTOM PROPS / VARIABLES
 :root {
 
     /* COLOURS */
-    --gold: #ccac00;
-    --black: #18181A;
-    --white: #F7F7F7;
+    --red: #833D37;
+    --grey: #212121;
+    --black: white;
     
     --alarm: #da4820;
 
+    /* P */
+    --ff-p: 'Playfair Display';
+    --ff-size-p: 1rem;
+    
     /* H1 */
-    --ff: 'madrasBoldItalic';
-    --ff-size: 1.6em;
+    --ff-h1: 'Playfair Display';
+    --ff-size-h1: 2.9rem;
 
     /* H2 */
-    --ff-ss: 'madrasBoldItalic';
-    --ff-size-h2: 1.1em;
-
-    /* P */
-    --ff-ss: 'MadrasExtraLight';
-    --ff-ss-size: 1em;
+    --ff-h2: 'Playfair Display', serif;
+    --ff-size-h2: 1.1rem;
 
     /* HR */
     --hr-wid: 80%;
 
     /* CONTENT PADDING TOP/BUT */
-    --pad-top: 2em;
-    --pad-but: 2em;
+    --pad-top: 1rem;
+    --pad-but: 1rem;
 
     /* CONTENT PADDING LEFT/RIGHT */
-    --pad-left: 1em;
-    --pad-right: 1em;
+    --pad-left: 2rem;
+    --pad-right: 2rem;
 
     /* CONTENT MARGING TOP/BUT */
-    --mar-top: 2em;
-    --mar-but: 2em;
+    --mar-top: 1rem;
+    --mar-but: 1rem;
 
     /* CONTENT MARGIN LEFT/RIGHT */
-    --mar-left: 1em;
-    --mar-right: 1em;
-
+    --mar-left: 2rem;
+    --mar-right: 2rem;
 }
-
-/*--------------------------------------------------
-CLOSE
---------------------------------------------------*/
 
 /*--------------------------------------------------
 ALL
@@ -82,29 +78,138 @@ ALL
     padding: 0;
 
     box-sizing: border-box; /* INCLUDES THE BORDER INTO THE ELEMENT INSTEAD OF ADDING */
+
+    font-size: 16px;
 }
 
 /*--------------------------------------------------
 BODY
 --------------------------------------------------*/
 
-/*--------------------------------------------------
-P, H1, H2, H3, H4, H5, H6
---------------------------------------------------*/
+/* body {
+    height: 100vh;
+    width: 100vw;
+} */
 
 /*--------------------------------------------------
-HR
+P, H1, H2, H3, H4, H5, H6, LI
 --------------------------------------------------*/
+
+p {
+    font-family: var(--f);
+    font-size: var(--ff-size-p);
+}
+
+h1 {
+    font-family: var(--ff-h1);
+    font-size: var(--ff-size-h1);
+    letter-spacing: 0.3rem;
+}
+
+h2 {
+    font-family: var(--ff-h2);
+    font-size: var(--ff-size-h2);
+}
+
+li {
+    font-family: var(--ff-p);
+    font-size: calc(var(--ff-size-p)*1.2);
+}
 
 /*--------------------------------------------------
-GRID
+ul
 --------------------------------------------------*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
 /*--------------------------------------------------
-HEADER SPAN
+GRID CONTAINER
 --------------------------------------------------*/
+
+.container {
+    height: 100vh;
+    width: 100vw;
+	display: grid;
+    grid-gap: 0px;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(auto, 1fr);
+	grid-template-areas:
+    "h h h h h h h h h h h h"
+    ". . c c c c c c . . . ."
+    ". . f f f f f f f f . .";
+}
 
 /*--------------------------------------------------
-DIV
+HEADER
 --------------------------------------------------*/
 
+header {
+    height: 300px;
+    width: 100vw;
+
+    background-image: url(./img/Picture-1-2.png);
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+
+    grid-area: h;
+}
+
+.headerbox {
+    height: 100%;
+    width: max-content;
+    background-color: green;
+
+    grid-row: 9 / span 2;
+    grid-column: 1 / span 1;
+    z-index: 2;
+}
+
+.headerbox h1 {
+    color: whitesmoke;
+    padding-right: var(--pad-right);
+}
+
+.headerbox ul {
+    color: whitesmoke;
+    padding-right: var(--pad-right);
+}
+
+
+/*--------------------------------------------------
+CONTENT
+--------------------------------------------------*/
+
+.content {
+    height: auto;
+    width: ;
+    background: var(--black);
+    color: black;
+
+    grid-area: c;
+}
+
+/*--------------------------------------------------
+ARTICLE
+--------------------------------------------------*/
+
+article {
+    padding-top: var(--pad-top);
+    padding-bottom: var(--pad-but);
+
+    padding-left: var(--pad-left);
+    padding-right: var(--pad-right);
+}
+
+/*--------------------------------------------------
+FOOTER
+--------------------------------------------------*/
+
+footer {
+    background: khaki;
+
+    grid-area: f;
+}
